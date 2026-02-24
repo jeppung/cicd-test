@@ -7,7 +7,7 @@
 # To ensure security and compatibility, regularly update the NODE_VERSION ARG to the latest LTS version.
 ARG NODE_VERSION=24.13.1
 
-FROM node:${NODE_VERSION} AS dependencies
+FROM node:${NODE_VERSION}-alpine AS dependencies
 
 # Set working directory
 WORKDIR /app
@@ -33,7 +33,7 @@ RUN --mount=type=cache,target=/root/.npm \
 # Stage 2: Build Next.js application in standalone mode
 # ============================================
 
-FROM node:${NODE_VERSION} AS builder
+FROM node:${NODE_VERSION}-alpine AS builder
 
 # Set working directory
 WORKDIR /app
@@ -67,7 +67,7 @@ RUN --mount=type=cache,target=/app/.next/cache \
 # Stage 3: Run Next.js application
 # ============================================
 
-FROM node:${NODE_VERSION} AS runner
+FROM node:${NODE_VERSION}-alpine AS runner
 
 # Set working directory
 WORKDIR /app

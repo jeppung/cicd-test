@@ -5,6 +5,9 @@ export default function Home() {
         <h1 className="text-4xl font-bold text-black dark:text-white">
           This is edited by Jeppung. This is a test for CI/CD pipeline.
         </h1>
+        <h2 className="text-xl text-gray-600 dark:text-gray-400">
+          The CI/CD pipeline is working correctly.
+        </h2>
       </main>
     </div>
   );
